@@ -7,11 +7,12 @@ Implemented MVC (Model-View-Controller) using Java EE APIs
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 - Derby DB
-- Data Access Object (DAO) pattern with Java Persistence API (JPA)
+- Data Access Object (DAO) pattern with Java Persistence API (JPA) / Injected EntityManager object
 - CDI with Managed Beans
-- EJB for business logic
+- EJB for Business Logic with Bean level User Transaction
 - Java Server Faces (JSF) 2.2 / Prime Faces library as view (HTML/CSS/Bootstrap)
 - JAX-WS (SOAP web service)
+
 - Database script to populate data
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
