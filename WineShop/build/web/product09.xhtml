@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Quinta da Leda 2017</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+        <link href="../store.css" rel="stylesheet" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        <!--header-->
+        <div class="container-fluid">
+            <h:form>
+                <div class="row">
+                    <div class="col text-left">
+                        <a href="index.xhtml"><img src="icons/logo.jpg" alt="logo" id="logo"/></a>
+                    </div>
+                    <div class="col text-center" id="menu-center">
+                        <a href="promotions.xhtml"><button type="button" class="btn btn-outline-dark">Promotions</button></a>
+                        <a href="products.xhtml"><button type="button" class="btn btn-outline-dark">Products</button></a>
+                        <a href="contacts.xhtml"><button type="button" class="btn btn-outline-dark">Contacts</button></a>
+                    </div>
+                    <div class="col text-right" id="menu-right">
+                        <h:commandButton value="ProductManager" action="#{login.checkRoleForProductManager()}" image="icons/manager.png" class="icons"></h:commandButton>
+                        <h:commandButton value="Account" action="#{login.login()}" image="icons/user.png" class="icons"></h:commandButton>
+                        <h:commandButton value="Cart" action="ShoppingCart" image="icons/shopping-cart.png" class="icons"></h:commandButton>    
+                    </div>
+                </div>
+            </h:form>
+        </div>
+        <hr />
+        <!--Content-->
+        <div class="container-fluid text-center">
+            <h2 class="font-weight-bold">Quinta da Leda</h2>
+        </div>
+        <div class='interval' />
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="products/p09-quinta-da-leda.jpg" class="rounded mx-auto d-block" alt="quinta da leda" />
+                </div>
+                <div class="col-sm-8">
+                    <div class="container">
+                        <div class="intervalo"></div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Type of Wine</th>
+                                    <th>Country of Origin</th>
+                                    <th>Region</th>
+                                    <th>Producer</th>
+                                    <th>Alcohol Content (%)</th>
+                                    <th>Serving Temperature (º)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Red</td>
+                                    <td>Portugal</td>
+                                    <td>Douro</td>
+                                    <td>Sogrape Vinhos</td>
+                                    <td>13.5</td>
+                                    <td>12-18</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="intervalo"></div>
+                    <div class="container">
+                        <p>Sogrape Vinhos was founded in 1942 by Fernando van Zeller Guedes, with the ambition of making Portuguese wines known to the world and a long-term vision based on the quality of the wines to be marketed, the importance of brand novelty and the presentation of its products. wines. Led today by the third generation of the founding family, Sogrape Vinhos increasingly faithfully fulfills the objective assumed since its foundation: to be a family-oriented company with an international vocation, focused on the production of quality wines, innovation and development of Portuguese brands of global level. Sogrape Vinhos has around 830 hectares of vineyards in Portugal. Casa Ferreirinha and its wines are synonymous with time and art. This has happened since its foundation, in the 18th century, by the hand of Bernardo Ferreira, who saw the formula refined by his descendants, especially by his granddaughter Dona Antónia Adelaide Ferreira, who affectionately became known as "Ferreirinha" or "Ferreirinha-da-Régua" for the people of your land. Through the hands of Dona Antónia, who twice widowed herself at the head of a large company, Ferreira consolidated itself admirably. Her entrepreneurial spirit taught her to foresee, decide, create, teach and love, making her a figure of great projection and charisma.
+                        </p>
+                    </div>
+                    <div class="container">
+                        <h5>Price: 36,50 &euro;</h5>
+                        <h:form>
+                            <h:commandButton value="Add to cart" action="#{shoppingCart.addProduct()}" 
+                                             styleClass="btn btn-outline-dark" 
+                                             onclick="if (!confirm('Product added to cart'))
+                                                         return false">
+                                <f:param name="id" value="9" />
+                            </h:commandButton>
+                            <a href="products.xhtml"><button type="button" class="btn btn-outline-dark">Back</button></a>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <div class="intervalo"></div>
+        <div class="container-fluid">
+            <div class="interval"></div>
+            <small>&#169; Copyright 2021, Wine Shop</small>
+        </div>
+    </h:body>
+</html>

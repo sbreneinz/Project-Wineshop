@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Error Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <!--header-->
+        <div class="container-fluid">
+            <h:form>
+                <div class="row">
+                    <div class="col text-left">
+                        <a href="index.xhtml"><img src="icons/logo.jpg" alt="logo" id="logo"/></a>
+                    </div>
+                    <div class="col text-center" id="menu-center">
+                        <a href="promotions.xhtml"><button type="button" class="btn btn-outline-dark">Promotions</button></a>
+                        <a href="products.xhtml"><button type="button" class="btn btn-outline-dark">Products</button></a>
+                        <a href="contacts.xhtml"><button type="button" class="btn btn-outline-dark">Contacts</button></a>
+                    </div>
+                    <div class="col text-right" id="menu-right">
+                        <h:commandButton value="ProductManager" action="#{login.checkRoleForProductManager()}" image="icons/manager.png" class="icons"></h:commandButton>
+                        <h:commandButton value="Account" action="#{login.login()}" image="icons/user.png" class="icons"></h:commandButton>
+                        <h:commandButton value="Cart" action="ShoppingCart" image="icons/shopping-cart.png" class="icons"></h:commandButton>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+        <hr />
+    </h:body>
+</html>

@@ -1,0 +1,33 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17/ago/2021, 16:05:23
+    Author     : sbren
+*/
+.interval {
+    height: 50px;
+}
+
+#logo {
+    width: 160px;
+    height: 160px;
+}
+
+.selectRadio label {
+	margin-right: 30px;
+        margin-left: 10px;
+}
+
+.table {   
+	border-collapse:collapse;
+	border-bottom:1px solid gray;
+	font-family: Tahoma,Verdana,Segoe,sans-serif;
+	width:100%;
+}
+
+.form {
+    border: 1px solid black;
+}

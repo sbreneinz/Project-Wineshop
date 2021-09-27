@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Quinta Vale D. Maria 2017</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+        <link href="../store.css" rel="stylesheet" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        <!--header-->
+        <div class="container-fluid">
+            <h:form>
+                <div class="row">
+                    <div class="col text-left">
+                        <a href="index.xhtml"><img src="icons/logo.jpg" alt="logo" id="logo"/></a>
+                    </div>
+                    <div class="col text-center" id="menu-center">
+                        <a href="promotions.xhtml"><button type="button" class="btn btn-outline-dark">Promotions</button></a>
+                        <a href="products.xhtml"><button type="button" class="btn btn-outline-dark">Products</button></a>
+                        <a href="contacts.xhtml"><button type="button" class="btn btn-outline-dark">Contacts</button></a>
+                    </div>
+                    <div class="col text-right" id="menu-right">
+                        <h:commandButton value="ProductManager" action="#{login.checkRoleForProductManager()}" image="icons/manager.png" class="icons"></h:commandButton>
+                        <h:commandButton value="Account" action="#{login.login()}" image="icons/user.png" class="icons"></h:commandButton>
+                        <h:commandButton value="Cart" action="ShoppingCart" image="icons/shopping-cart.png" class="icons"></h:commandButton>    
+                    </div>
+                </div>
+            </h:form>
+        </div>
+        <hr />
+        <!--Content-->
+        <div class="container-fluid text-center">
+            <h2 class="font-weight-bold">Quinta Vale D. Maria</h2>
+        </div>
+        <div class='interval' />
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="products/p10-quinta-vale-dona-maria.jpg" class="rounded mx-auto d-block" alt="vale dona maria" />
+                </div>
+                <div class="col-sm-8">
+                    <div class="container">
+                        <div class="intervalo"></div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Type of Wine</th>
+                                    <th>Country of Origin</th>
+                                    <th>Region</th>
+                                    <th>Producer</th>
+                                    <th>Alcohol Content (%)</th>
+                                    <th>Serving Temperature (º)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Red</td>
+                                    <td>Portugal</td>
+                                    <td>Douro</td>
+                                    <td>Lemos &amp; Van Zeller</td>
+                                    <td>15.5</td>
+                                    <td>12-18</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="intervalo"></div>
+                    <div class="container">
+                        <p>Quinta do Vale Dona Maria is a property situated by the mouth of the Rio Torto. Its history dates back to 1868 and was associated with names such as the Symingtons, who used their grapes to integrate into vintage Smith Woodhouse. When the Van Zeller family took over this farm, they found it almost completely abandoned, with about 10ha of old vines. The recovery work would be arduous, but nothing that would take Cristiano van Zeller away from this arduous task, or if he did not come from a superb "school" like Quinta do Noval, of which he was president. Work began on recovering the vineyard and houses that were almost reduced to dust. But what commanded Cristiano was to realize day after day that he had a pearl there that he had so much to give. They also acquired plots adjacent to the Quinta, until it reached 28ha of vineyard. The inaugural harvest was in 1996 and it never stopped producing great wines. Recently, the wines from this farm, CV, Vale Dona Maria, and the recent Vinha do Rio and Vinha Francisca have been among the best wines in Portugal for Wine Advocate, the most important and prestigious wine publication in the world . At Quinta do vale Dona Maria wines from the Van Zellers range are also produced, wines that come from grapes purchased outside the Quinta, but which, due to their quality, deserve to bear the family name. In these, the professional treatment and rigor is exactly the same as that deposited in the wines that come from the farm, there are no easy things.
+                        </p>
+                    </div>
+                    <div class="container">
+                        <h5>Price: 43,50 &euro;</h5>
+                        <h:form>
+                            <h:commandButton value="Add to cart" action="#{shoppingCart.addProduct()}" 
+                                             styleClass="btn btn-outline-dark" 
+                                             onclick="if (!confirm('Product added to cart'))
+                                                         return false">
+                                <f:param name="id" value="10" />
+                            </h:commandButton>
+                            <a href="products.xhtml"><button type="button" class="btn btn-outline-dark">Back</button></a>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <div class="intervalo"></div>
+        <div class="container-fluid">
+            <div class="interval"></div>
+            <small>&#169; Copyright 2021, Wine Shop</small>
+        </div>
+    </h:body>
+</html>

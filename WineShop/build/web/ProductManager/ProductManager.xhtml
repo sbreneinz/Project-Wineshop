@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:metadata>
+        <f:event  type="preRenderView" listener="#{productManager.loadProducts()}" />
+    </f:metadata>
+    <h:head>
+        <title>Product Manager</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+        <link href="ProductManager.css" rel="stylesheet" type="text/css" />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+    </h:head>
+
+    <h:body>
+        <!--header-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="../index.xhtml"><img src="../icons/logo.jpg" alt="logo" id="logo"/></a>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container-fluid">
+            <div class="col text-center">
+                <h3>Product Manager</h3>
+            </div>
+        </div>
+        <div class="interval"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-center">
+                    <h:form>    
+                        <a href="AddProduct.xhtml"><button type="button" class="btn btn-outline-dark">Add Product</button></a>
+                        <h:commandButton value="Add Category" action="#{login.checkRoleForAddCategory()}" class="btn btn-outline-dark"></h:commandButton>
+                        <h:commandButton value="Add Sub Category" action="#{login.checkRoleForAddSubCategory()}" class="btn btn-outline-dark"></h:commandButton>
+                    </h:form>
+                </div>
+            </div>
+            <br />
+            <!--content-->
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <h:form styleClass="form">
+                            <h:dataTable var="tempProduct" value="#{productManager.products}" styleClass="table">
+                                <h:column>
+                                    <f:facet name="header">ID</f:facet>
+                                        #{tempProduct.productId}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Name</f:facet>
+                                        #{tempProduct.name}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Price</f:facet>
+                                    #{tempProduct.price}&euro;
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Type</f:facet>
+                                        #{tempProduct.type}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Year</f:facet>
+                                        #{tempProduct.year}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Country</f:facet>
+                                        #{tempProduct.country}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Region</f:facet>
+                                        #{tempProduct.region}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Producer</f:facet>
+                                        #{tempProduct.producer}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Action</f:facet>
+                                    <!--find by id -> update form-->
+                                    <h:commandLink value="Update" action="#{productManager.loadProduct(tempProduct.productId)}" />
+                                    |
+                                    <h:commandLink value="Delete" 
+                                                   onclick="if (!confirm('Are you sure you want to delete this product?'))
+                                                               return false"
+                                                   action="#{productManager.deleteProduct(tempProduct.productId)}" />                                   
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Available</f:facet>
+                                    <h:commandLink value="add stock" action="#{productManager.loadInventory(tempProduct.productId)}" />
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                        <p><h:outputLink value="../index.xhtml">Back</h:outputLink></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    </h:body>
+</html>
